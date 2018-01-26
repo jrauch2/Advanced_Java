@@ -7,12 +7,19 @@ import java.io.IOException;
 
 /**
  * Created by mgreen14 on 12/27/17.
+ * This class reads a file.
+ * @author Matt Green, Joshua Rauch
+ * @version 1.1
  */
 public class FileInput {
 
     private BufferedReader in = null;
     private String fileName;
 
+    /**
+     *
+     * @param fileName The name of the file to be read.
+     */
     public FileInput(String fileName) {
         this.fileName = fileName;
         try {
@@ -22,6 +29,9 @@ public class FileInput {
         }
     }
 
+    /**
+     * Read the next line from the file, then print the line to the terminal.
+     */
     public void fileRead() {
         String line;
         try {
@@ -29,20 +39,26 @@ public class FileInput {
                 System.out.println(line);
             }
         } catch (Exception e) {
-            System.out.println("File Write Error: " + fileName + " " + e);
+            System.out.println("File Read Error: " + fileName + " " + e);
         }
     }
 
+    /**
+     * Read the next line from the file.
+     * @return the line.
+     */
     public String fileReadLine() {
         try {
-            String line = in.readLine();
-            return line;
+            return in.readLine();
         } catch (Exception e) {
             System.out.println("File Write Error: " + fileName + " " + e);
             return null;
         }
     }
 
+    /**
+     * If the file is open, try to close it.
+     */
     public void fileClose() {
         if (in != null) {
             try {

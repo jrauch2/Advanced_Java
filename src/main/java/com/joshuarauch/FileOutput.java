@@ -4,12 +4,19 @@ import java.io.*;
 
 /**
  * Created by mgreen14 on 12/27/17.
+ * This class outputs to a file.
+ * @author Matt Green, Joshua Rauch
+ * @version 1.0
  */
 public class FileOutput {
 
     Writer out = null;
     private String fileName;
 
+    /**
+     *
+     * @param fileName The name of the to write to.
+     */
     public FileOutput(String fileName) {
         this.fileName = fileName;
         try {
@@ -20,6 +27,10 @@ public class FileOutput {
         }
     }
 
+    /**
+     *
+     * @param line The string to write on a line in the file.
+     */
     public void fileWrite(String line) {
         try {
             out.write(line+"\n");
@@ -29,6 +40,9 @@ public class FileOutput {
         }
     }
 
+    /**
+     * Close the file.
+     */
     public void fileClose() {
         if (out != null) {
             try {
