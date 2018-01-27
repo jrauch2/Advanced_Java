@@ -1,8 +1,8 @@
 package com.joshuarauch;
 
 /**
- * Created by mgreen14 on 12/27/17.
  * This class represents a dog with a name and if it is friendly.
+ * @since  1.0 12/27/17
  * @author Matt Green, Joshua Rauch
  * @version 1.0
 */

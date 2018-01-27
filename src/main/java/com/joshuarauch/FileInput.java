@@ -6,8 +6,8 @@ import java.io.FileReader;
 import java.io.IOException;
 
 /**
- * Created by mgreen14 on 12/27/17.
  * This class reads a file.
+ * @since  1.0 12/27/17
  * @author Matt Green, Joshua Rauch
  * @version 1.1
  */
