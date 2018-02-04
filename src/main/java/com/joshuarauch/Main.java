@@ -1,21 +1,19 @@
 package com.joshuarauch;
 
+
 import java.util.ArrayList;
 
 public class Main {
 
     private final static FileOutput outFile = new FileOutput("animals.txt");
     private final static FileInput inFile = new FileInput("animals.txt");
-
     public static void main(String[] args) {
 
         ArrayList<Talkable> zoo = new ArrayList<>();
-
-        //Lines to Replace
-        zoo.add(new Dog(true, "Pete"));
-        zoo.add(new Cat(9, "Anne Belly"));
-        zoo.add(new Student(19, "Joe John Johnson"));
-        //End Lines to Replace
+        Boolean addTalkable = true;
+        // User input
+        UserInput input = new UserInput(zoo);
+        zoo = input.addTalkable();
 
         for (Talkable thing: zoo) {
             printOut(thing);
