@@ -14,9 +14,13 @@ public class Student extends Person implements Talkable {
      * @param age The age of this student.
      * @param name The name of this student.
      */
-    public Student(int age, String name) {
+    public Student(int age, String name) throws Exception {
         super(name);
-        this.age = age;
+        if (age < 0) {
+            throw new Exception ("Age must be greater than or equal to 0.");
+        } else {
+            this.age = age;
+        }
     }
 
     /**

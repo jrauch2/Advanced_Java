@@ -3,6 +3,9 @@ package com.joshuarauch;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * This class accepts user input to create a person or a pet.
+ */
 public class UserInput {
     public static Scanner keyboard = new Scanner(System.in);
     ArrayList<Talkable> zoo;
@@ -11,6 +14,10 @@ public class UserInput {
         this.zoo = zoo;
     }
 
+    /**
+     * This method asks a user if they want to add a person or pet.
+     * @return ArrayList of Talkable objects.
+     */
     public ArrayList addTalkable() {
         String ans;
         boolean wantAddTalkable = true;
@@ -32,6 +39,9 @@ public class UserInput {
         return zoo;
     }
 
+    /**
+     * This method adds a pet.
+     */
     public void addPet() {
         boolean wantAddPet = true;
         PetIO input = new PetIO();
@@ -46,8 +56,20 @@ public class UserInput {
         } while(wantAddPet);
     }
 
+    /**
+     * This method adds a person.
+     */
     public void addPerson() {
-//        TODO
+        boolean wantAddPerson = true;
+        PersonIO input = new PersonIO();
+        do {
+            try {
+                zoo.add(input.getPerson());
+            }
+            catch(Exception e) {
+                System.out.println(e.getMessage());
+                wantAddPerson=false;
+            }
+        } while(wantAddPerson);
     }
-
 }
