@@ -25,7 +25,7 @@ public class Main {
             if (readByte == -1)
                 break;
             keyOut.nextByte(key);
-            outFile.nextByte(Crypt.encrypt(readByte, key));
+            outFile.nextByte(Crypt.crypt(readByte, key));
         } while (true);
         outFile.close();
         keyOut.close();
@@ -41,7 +41,9 @@ public class Main {
             int key = keyIn.nextByte();
             if (readByte == -1)
                 break;
-            outFile.nextByte(Crypt.encrypt(readByte, key));
+            int decodedInt = Crypt.crypt(readByte, key);
+            outFile.nextByte(decodedInt);
+            System.out.print((char)decodedInt);
         } while (true);
     }
 }
