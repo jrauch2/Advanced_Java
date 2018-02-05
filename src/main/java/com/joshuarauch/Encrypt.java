@@ -9,7 +9,7 @@ public class Encrypt {
 
     public void encrypt(char character) {
 
-        System.out.println(key.getBytes());
+        System.out.println();
 
 
     }
