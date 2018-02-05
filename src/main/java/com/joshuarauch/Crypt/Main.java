@@ -1,13 +1,19 @@
 package com.joshuarauch.Crypt;
 
+import java.util.Scanner;
+
 public class Main {
 
-    public static void main(String[] args) {
+    Scanner keyboard = new Scanner(System.in);
 
+    public static void main(String[] args) {
+        Main main1 = new Main();
+        main1.encrypt();
+        main1.decrypt();
 
     }
 
-    public void encrypt() {
+    private void encrypt() {
         FileRead inFile = new FileRead("sample.txt");
         FileWrite outFile = new FileWrite("sample.encrypted.txt");
         FileWrite keyOut = new FileWrite("key.txt");
@@ -16,14 +22,16 @@ public class Main {
         do {
             readByte = inFile.nextByte();
             int key = Key.keyGen();
+            if (readByte == -1)
+                break;
             keyOut.nextByte(key);
             outFile.nextByte(Crypt.encrypt(readByte, key));
-        } while (readByte > -1);
+        } while (true);
         outFile.close();
         keyOut.close();
     }
 
-    public void decrypt() {
+    private void decrypt() {
         FileRead inFile = new FileRead("sample.encrypted.txt");
         FileWrite outFile = new FileWrite("sample.decrypted.txt");
         FileRead keyIn = new FileRead("key.txt");
@@ -31,7 +39,9 @@ public class Main {
         do {
             readByte = inFile.nextByte();
             int key = keyIn.nextByte();
+            if (readByte == -1)
+                break;
             outFile.nextByte(Crypt.encrypt(readByte, key));
-        } while (readByte > -1);
+        } while (true);
     }
 }
