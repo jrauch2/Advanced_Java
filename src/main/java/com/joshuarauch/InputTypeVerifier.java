@@ -1,22 +1,14 @@
 package com.joshuarauch;
 
-public class InputTypeVerifier {
-    String userInput;
-    int userInputInt;
+public final class InputTypeVerifier {
 
-    public InputTypeVerifier(String string) {
-        this.userInput = string;
-    }
+    public static int verifyInt(String s) throws Exception{
 
-    public int verifyInt() throws Exception{
         try {
-            userInputInt = Integer.parseInt(userInput);
+            return Integer.parseInt(s);
         } catch (NumberFormatException e){
-            throw new Exception("Not an int");
-        } finally {
-            return userInputInt;
+            throw new Exception("Not an integer.");
         }
-
     }
 
 
