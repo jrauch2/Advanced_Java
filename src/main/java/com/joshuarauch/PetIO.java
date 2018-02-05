@@ -1,13 +1,23 @@
 package com.joshuarauch;
 
 import java.util.Scanner;
-
+/**
+ * This class accepts user input to create a dog or cat.
+ * @since  1.0 1/29/2018
+ * @author Joshua Rauch
+ * @version 1.0
+ */
 public class PetIO {
     public static Scanner keyboard = new Scanner(System.in);
     public PetIO() {
 
     }
 
+    /**
+     * This method accepts user input to create a pet.
+     * @return the pet created.
+     * @throws Exception
+     */
     public Talkable getPet() throws Exception {
         String ans;
         Talkable pet = null;
@@ -21,12 +31,16 @@ public class PetIO {
             } else if (ans.toUpperCase().charAt(0) == 'X') {
                 throw new Exception("Exit pet input.");
             } else {
-                System.out.println("Invalid Animal Type.");
+                System.out.println("Invalid animal type.");
             }
         } while((ans != null) && (ans.toUpperCase().charAt(0) != 'C') && (ans.toUpperCase().charAt(0) != 'D'));
         return pet;
     }
 
+    /**
+     * This method creates a dog.
+     * @return dog.
+     */
     private Talkable createDog() {
         String name = inputName();
         String ans;
@@ -43,6 +57,10 @@ public class PetIO {
         return new Dog(friendly, name);
     }
 
+    /**
+     * This method creates a cat.
+     * @return cat.
+     */
     private Talkable createCat() {
         String name = inputName();
         String ans;
@@ -65,6 +83,10 @@ public class PetIO {
         return new Cat(miceKilled, name);
     }
 
+    /**
+     * This method sets the name of a pet.
+     * @return name of pet.
+     */
     private String inputName() {
         String ans;
         do {
