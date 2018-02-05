@@ -9,7 +9,7 @@ public class StudentTest {
     Student student;
 
     @Before
-    public void testSetUp() {
+    public void testSetUp() throws Exception{
         student = new Student(28, "Joshua");
     }
 

@@ -64,23 +64,19 @@ public class PetIO {
     private Talkable createCat() {
         String name = inputName();
         String ans;
-        int miceKilled=0;
-        boolean miceNumeric=false;
-        while (!miceNumeric) {
-            System.out.println("Please enter number of mice killed:  ");
+        Talkable cat = null;
+
+        do {
+            System.out.println("Please enter number of mice killed: ");
             ans = keyboard.nextLine();
             try {
-                miceKilled = Integer.parseInt(ans);
-                miceNumeric=true;
-            } catch (NumberFormatException e) {
-                System.out.println(ans
-                        + " is not an integer.");
-            } catch (Exception e)
-            {
-                System.out.println("Bad number format.");
+                cat = new Cat(InputTypeVerifier.verifyInt(ans), name);
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
             }
-        }
-        return new Cat(miceKilled, name);
+        } while (cat == null);
+
+        return cat;
     }
 
     /**
