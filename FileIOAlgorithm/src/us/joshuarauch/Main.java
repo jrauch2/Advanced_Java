@@ -1,10 +1,10 @@
-package us.mattgreen;
+package us.joshuarauch;
 
 import java.util.Scanner;
 
 public class Main {
 
-    private final static FileInput indata = new FileInput("meals_data.csv");
+    private final static FileInput indata = new FileInput("D:\\OneDrive - Waukesha County Technical College\\Spring 2018\\Advanced Java\\Advanced_Java\\FileIOAlgorithm\\meals_data.csv");
     private static Scanner keyboard = new Scanner(System.in);
     private static MealsArray mealsArray = new MealsArray();
 
