@@ -101,11 +101,10 @@ public class Employee {
 
 
     public void setCubeId(String cubeId) throws Exception{
-        if (cubeId.length() < 0) {
-            throw new Exception("Invalid cube ID.");
-        } else {
-            this.cubeId = cubeId;
+        if (cubeId == null || cubeId.isEmpty()) {
+            throw new IllegalArgumentException("Invalid cube ID");
         }
+        this.cubeId = cubeId;
     }
 
     public Date getOrientationDate() {
