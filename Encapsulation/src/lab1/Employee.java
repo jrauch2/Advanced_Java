@@ -22,10 +22,10 @@ public class Employee {
     private String cubeId;
     private Date orientationDate;
 
-    public Employee(String firstName, String lastName, String ssn) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.ssn = ssn;
+    public Employee(String firstName, String lastName, String ssn) throws Exception{
+        setFirstName(firstName);
+        setLastName(lastName);
+        setSsn(ssn);
     }
 
     public String getFirstName() {
@@ -33,6 +33,9 @@ public class Employee {
     }
 
     public void setFirstName(String firstName) {
+        if (firstName == null || firstName.isEmpty() || firstName.length() < 3) {
+            throw new IllegalArgumentException("First name is required and must be at least 3 characters in length.");
+        }
         this.firstName = firstName;
     }
 
@@ -41,6 +44,9 @@ public class Employee {
     }
 
     public void setLastName(String lastName) {
+        if (lastName == null || lastName.isEmpty() || lastName.length() < 3) {
+            throw new IllegalArgumentException("First name is required and must be at least 3 characters in length.");
+        }
         this.lastName = lastName;
     }
 
@@ -48,14 +54,19 @@ public class Employee {
         return ssn;
     }
 
-    public void setSsn(String ssn) {
-        this.ssn = ssn;
+    private void setSsn(String ssn) throws Exception{
+        if (ssn.matches("\\d{3}-\\d{2}-\\d{4}")) {
+            this.ssn = ssn;
+        } else {
+            throw new IllegalArgumentException("Invalid SSN length.");
+        }
     }
 
     public boolean isMetWithHr() {
         return metWithHr;
     }
 
+    // boolean parameters need no validation
     public void setMetWithHr(boolean metWithHr) {
         this.metWithHr = metWithHr;
     }
@@ -88,8 +99,13 @@ public class Employee {
         return cubeId;
     }
 
-    public void setCubeId(String cubeId) {
-        this.cubeId = cubeId;
+
+    public void setCubeId(String cubeId) throws Exception{
+        if (cubeId.length() < 0) {
+            throw new Exception("Invalid cube ID.");
+        } else {
+            this.cubeId = cubeId;
+        }
     }
 
     public Date getOrientationDate() {

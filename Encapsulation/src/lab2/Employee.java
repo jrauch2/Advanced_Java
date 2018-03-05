@@ -30,10 +30,10 @@ public class Employee {
     private String cubeId;
     private Date orientationDate;
 
-    public Employee(String firstName, String lastName, String ssn) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.ssn = ssn;
+    public Employee(String firstName, String lastName, String ssn) throws Exception{
+        setFirstName(firstName);
+        setLastName(lastName);
+        setSsn(ssn);
     }
 
     public void orientation(String cubeId) {
@@ -90,9 +90,12 @@ public class Employee {
 
     // setter methods give the developer the power to control what data is
     // allowed through validation.
-    
+
     public void setFirstName(String firstName) {
-       this.firstName = firstName;
+        if (firstName == null || firstName.isEmpty() || firstName.length() < 3) {
+            throw new IllegalArgumentException("First name is required and must be at least 3 characters in length.");
+        }
+        this.firstName = firstName;
     }
 
     public String getLastName() {
@@ -100,15 +103,22 @@ public class Employee {
     }
 
     public void setLastName(String lastName) {
-       this.lastName = lastName;
+        if (lastName == null || lastName.isEmpty() || lastName.length() < 3) {
+            throw new IllegalArgumentException("Last name is required and must be at least 3 characters in length.");
+        }
+        this.lastName = lastName;
     }
 
     public String getSsn() {
         return ssn;
     }
 
-    public void setSsn(String ssn) {
-        this.ssn = ssn;
+    private void setSsn(String ssn) throws Exception{
+        if (ssn.matches("\\d{3}-\\d{2}-\\d{4}")) {
+            this.ssn = ssn;
+        } else {
+            throw new IllegalArgumentException("Invalid SSN length.");
+        }
     }
 
     public boolean isMetWithHr() {
@@ -148,8 +158,11 @@ public class Employee {
         return cubeId;
     }
 
-    
+
     public void setCubeId(String cubeId) {
+        if (cubeId == null || cubeId.isEmpty()) {
+            throw new IllegalArgumentException("Invalid cube ID");
+        }
         this.cubeId = cubeId;
     }
 
@@ -159,4 +172,5 @@ public class Employee {
 
     public void setOrientationDate(Date orientationDate) {
         this.orientationDate = orientationDate;
-    }}
+    }
+}
