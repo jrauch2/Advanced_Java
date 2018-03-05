@@ -30,7 +30,7 @@ public class Employee {
     private String cubeId;
     private Date orientationDate;
 
-    public Employee(String firstName, String lastName, String ssn) throws Exception{
+    public Employee(String firstName, String lastName, String ssn) {
         setFirstName(firstName);
         setLastName(lastName);
         setSsn(ssn);
@@ -106,7 +106,7 @@ public class Employee {
         return ssn;
     }
 
-    private void setSsn(String ssn) throws Exception{
+    private void setSsn(String ssn){
         if (ssn.matches("\\d{3}-\\d{2}-\\d{4}")) {
             this.ssn = ssn;
         } else {
