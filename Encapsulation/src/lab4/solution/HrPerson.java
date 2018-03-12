@@ -14,7 +14,6 @@ import java.util.List;
 public class HrPerson {
     private List<Employee> employees;
 
-
     public HrPerson() {
         employees = new ArrayList();
     }

@@ -207,7 +207,6 @@ public class Employee {
     public String getCubeId() {
         return cubeId;
     }
-
     
     public void setCubeId(String cubeId) {
         if(cubeId == null || cubeId.isEmpty()) {
@@ -234,6 +233,4 @@ public class Employee {
     public void setReportService(EmployeeReportService reportService) {
         this.reportService = reportService;
     }
-    
 }
-
