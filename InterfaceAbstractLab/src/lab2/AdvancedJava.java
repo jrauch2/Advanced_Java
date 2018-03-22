@@ -1,28 +1,30 @@
-package lab1;
+package lab2;
 
 import javax.swing.JOptionPane;
 
 /**
- * Describe responsibilities here. NOTE: this class has NO PREREQUISITES!
- * Do not change this fact.
+ * Advanced Java course responsible for knowing course name, course number, credits the course is worth, and prerequisites for the course.
  *
- * @author      your name goes here
+ * @author      Joshua Rauch
  * @version     1.00
  */
-public class IntroToProgrammingCourse {
+public class AdvancedJava implements Course {
     private String courseName;
-    String courseNumber;
+    private String courseNumber;
     private double credits;
+    private String prerequisites;
 
-    public IntroToProgrammingCourse(String courseName, String courseNumber) {
+    public AdvancedJava(String courseName, String courseNumber) {
         this.setCourseName(courseName);
         this.setCourseNumber(courseNumber);
     }
 
+    @Override
     public String getCourseNumber() {
         return courseNumber;
     }
 
+    @Override
     public final void setCourseNumber(String courseNumber) {
         if(courseNumber == null || courseNumber.length() == 0) {
             JOptionPane.showMessageDialog(null,
@@ -32,10 +34,12 @@ public class IntroToProgrammingCourse {
         this.courseNumber = courseNumber;
     }
 
+    @Override
     public double getCredits() {
         return credits;
     }
 
+    @Override
     public void setCredits(double credits) {
         if(credits < 0.5 || credits > 4.0) {
             JOptionPane.showMessageDialog(null,
@@ -45,10 +49,12 @@ public class IntroToProgrammingCourse {
         this.credits = credits;
     }
 
+    @Override
     public String getCourseName() {
         return courseName;
     }
 
+    @Override
     public final void setCourseName(String courseName) {
         if(courseName == null || courseName.length() == 0) {
             JOptionPane.showMessageDialog(null,
@@ -58,5 +64,16 @@ public class IntroToProgrammingCourse {
         this.courseName = courseName;
     }
 
-    
+    public String getPrerequisites() {
+        return prerequisites;
+    }
+
+    public void setPrerequisites(String prerequisites) {
+        if(prerequisites == null || prerequisites.length() == 0) {
+            JOptionPane.showMessageDialog(null,
+                    "Error: prerequisites cannot be null of empty string");
+            System.exit(0);
+        }
+        this.prerequisites = prerequisites;
+    }
 }

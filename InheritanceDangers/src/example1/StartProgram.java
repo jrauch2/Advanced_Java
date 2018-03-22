@@ -37,11 +37,11 @@ public class StartProgram {
      */
     public static void main(String[] args) {
         // Duck inherits from Animal
-        Duck duck = new Duck();
+//        Duck duck = new Duck();
 //        // sends "quack" to the console; not consistent, but at least it quacks
-        duck.speak();
+//        duck.speak();
 //        // Is this really what the duck just said?
-        System.out.println("The last thing the duck said is: " + duck.getSpokenMessage());
+//        System.out.println("The last thing the duck said is: " + duck.getSpokenMessage());
 //
 //        // MuteDog inherits from animal
 //        Animal mute = new MuteDog();
@@ -57,11 +57,11 @@ public class StartProgram {
 //        System.out.println("The last thing the dog said is: " + dog.getSpokenMessage());
         
         // Cat extends animal.
-//        Cat cat = new Cat();
+        Cat cat = new Cat();
 //        // No override of speak(), so is this what we want our cat to say? Mute?
-//        cat.speak();
+        cat.speak();
         // Well, if the Cat is mute, then is appropriate. But what if it "meows"?
-//        System.out.println("The last thing the cat said is: " + cat.getSpokenMessage());
+        System.out.println("The last thing the cat said is: " + cat.getSpokenMessage());
         
     }
 
