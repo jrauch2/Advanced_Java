@@ -1,10 +1,5 @@
 package lab2;
 
-import lab2.AdvancedJava;
-import lab2.Course;
-import lab2.IntroJava;
-import lab2.IntroProgramming;
-
 public class StartUp {
 //    One thing good about this architecture is how flexible it is. Each class that implements the interface MUST implement all methods, but how they do so is up to the developer, leaving it flexible and open to whatever the developer decides. In this instance, that flexibility can be troublesome, since I would think that we would want all courses in our program to do the same thing. To make them all do the same thing, there is a lot of repeating code.
     public static void main(String[] args) {
