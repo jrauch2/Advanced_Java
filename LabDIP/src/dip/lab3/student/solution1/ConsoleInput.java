@@ -3,13 +3,12 @@ package dip.lab3.student.solution1;
 import java.util.Scanner;
 
 public class ConsoleInput implements MessageInput {
-    private String message = null;
+    private String message;
     private Scanner keyboard = new Scanner(System.in);
     private final String EXCEPTION_MESSAGE = "Not a valid message. Please enter a message at least one character in length.";
 
     ConsoleInput() {
-        String message = null;
-
+        message = null;
         do {
             System.out.print("What would you like the message to say? ");
             message = keyboard.nextLine();
