@@ -1,10 +1,5 @@
 package ch13.work.adaptor;
 
-import ch13.work.command.Broker;
-import ch13.work.command.BuyStock;
-import ch13.work.command.SellStock;
-import ch13.work.command.Stock;
-
 public class Main {
 
     public static void main(String[] args) {

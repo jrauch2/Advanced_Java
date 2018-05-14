@@ -1,8 +1,8 @@
-package ch13.work.command;
+package ch13.work.command2;
 
-public class Stock {
+public class Pizza {
 
-    private String name = "ABC";
+    private String name = "Pepperoni";
     private int quantity = 10;
 
     public void buy(){
